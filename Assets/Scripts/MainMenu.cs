@@ -1,27 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class GraphicsQualityManager : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private Slider graphicsQualitySlider;
+    // Reference to the settings panel
+    public GameObject settingsPanel;
 
-    private void Start()
+    // Method to start the game by loading the specified scene
+    public void PlayGame()
     {
-        // Load saved quality level or set default (e.g., medium)
-        int savedQuality = PlayerPrefs.GetInt("GraphicsQuality", 2);
-        graphicsQualitySlider.value = savedQuality;
-        SetGraphicsQuality((int)graphicsQualitySlider.value);
-
-        // Add listener to update quality when the slider value changes
-        graphicsQualitySlider.onValueChanged.AddListener(delegate { SetGraphicsQuality((int)graphicsQualitySlider.value); });
+        SceneManager.LoadSceneAsync(1); // Load the scene with index 1 asynchronously
     }
 
-    public void SetGraphicsQuality(int level)
+    // Method to quit the game application
+    public void QuitGame()
     {
-        QualitySettings.SetQualityLevel(level);
-        PlayerPrefs.SetInt("GraphicsQuality", level);
-        PlayerPrefs.Save();
+        Application.Quit(); // Close the application
+    }
+
+    // Method to toggle the settings panel visibility
+    public void ToggleSettings()
+    {
+        if (settingsPanel != null)
+        {
+            settingsPanel.SetActive(!settingsPanel.activeSelf); // Toggle the panel's active state
+        }
+    }
+
+    // Method to close the settings panel
+    public void CloseSettings()
+    {
+        if (settingsPanel != null && settingsPanel.activeSelf)
+        {
+            settingsPanel.SetActive(false); // Set the panel's active state to false to close it
+        }
     }
 }
