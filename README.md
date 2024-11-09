@@ -99,4 +99,6 @@ Copy and paste the snippet of code you are referencing
 
 ## Acknowledgments
 
-* First Person Starter Assets taken from - https://assetstore.unity.com/packages/essentials/starter-assets-firstperson-updates-in-new-charactercontroller-pa-196525
+* Hat tip to anyone whose code was used
+* Inspiration
+* etc
