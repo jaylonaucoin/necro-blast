@@ -6,6 +6,10 @@ TagManager:
   tags:
   - CinemachineTarget
   - Walkable
+  - Weapon
+  - SecondCamera
+  - BulletSpawn
+  - Dummie
   layers:
   - Default
   - TransparentFX
