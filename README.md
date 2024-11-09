@@ -28,75 +28,24 @@ See the following section for detailed step-by-step instructions on how to insta
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be, assume the marker just acquired a computer
-
-```
-Give the example
-```
-
-And repeat
-
-End with an example of getting some data out of the system or using it for a little demo. You may also include a quick example of what the marker should see if the installation of all required software / libraries / plug-ins was successful.
-
-
-## Running the tests
-
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-
 ## Deployment
 
 ## Built With
 
-<!--- Provide a list of the frameworks used to build this application, your list should include the name of the framework used, the url where the framework is available for download and what the framework was used for, see the example below --->
-
 * [Unity](https://docs.unity3d.com/Manual/index.html) - The game engine used
 * [Rider](https://www.jetbrains.com/help/rider/Introduction.html) - IDE used
-**
 
-## Sources Used
+## Resources Used
 
-If in completing your lab / assignment / project you used any interpretation of someone else's code, then provide a list of where the code was implement, how it was implemented, why it was implemented, and how it was modified. See the sections below for more details.
+* [Brackeys Youtube Channel](https://www.youtube.com/channel/UCYbK_tjZ2OrIZFBvU6CCMiA)
+* [The Game Dev Cave](https://www.youtube.com/@thegamedevcave)
+* [Mixamo](https://www.mixamo.com/#/) for animations
+* Other various online tutorials
 
-### File Name
+## Accreditation/Attributions
 
-*Lines ## - ##*
-
-```
-Copy and paste your code on lines mentioned 
-
-```
-
-The code above was created by adapting the code in [NAME](link) as shown below: 
-
-```
-Copy and paste the snippet of code you are referencing
-
-```
-
-- <!---How---> The code in [NAME](link) was implemented by...
-- <!---Why---> [NAME](link)'s Code was used because...
-- <!---How---> [NAME](link)'s Code was modified by...
-
-*Repeat as needed*
-
-## Acknowledgments
-
-* First Person Starter Assets taken from - https://assetstore.unity.com/packages/essentials/starter-assets-firstperson-updates-in-new-charactercontroller-pa-196525
+* "Starter Assets - FirstPerson | Updates in new CharacterController package" (https://assetstore.unity.com/packages/essentials/starter-assets-firstperson-updates-in-new-charactercontroller-pa-196525) by Unity Technologies is licensed under Unity Asset Store EULA (https://unity.com/legal/as-terms).
+* .
+* .
+* .
+* "Name" (URL) by Author is licensed under Unity Asset Store EULA (https://unity.com/legal/as-terms).
