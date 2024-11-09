@@ -22,6 +22,7 @@ public class EnemyMovement : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
 		animator = GetComponent<Animator>();
 		characterController = GetComponent<CharacterController>();
+        animator.Play("Z_Idle");
 
         //sets the speed of the NavMeshAgent
         agent.speed = speed;
@@ -36,6 +37,7 @@ public class EnemyMovement : MonoBehaviour {
                 target = GameObject.FindWithTag("Player").GetComponent<Transform>();
             }
         }
+        
     }
     
     // Update is called once per frame
@@ -52,6 +54,7 @@ public class EnemyMovement : MonoBehaviour {
         if (distance > minDistance) {
 			//uses NavMeshAgent to move the player
             agent.SetDestination(target.position);
+            animator.Play("Z_Walk_InPlace");
         }
 		
 		//grabs the current movementSpeed of the enemy
@@ -64,19 +67,15 @@ public class EnemyMovement : MonoBehaviour {
 	//check if the enemy enters the target's collider
 	private void OnTriggerEnter(Collider other)
     {
-        /*if (other.CompareTag("Player")) {
-            if (gameObject.CompareTag("Golem")) {
-                animator.Play("Giant@UnarmedAttack01");
-            } else {
-                animator.Play("Z_Attack");
-            }
+        if (other.CompareTag("Player")) {
+            animator.Play("Z_Attack");
             //calls method to take damage
-            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
-            if (playerHealth != null)
-            {
-                playerHealth.takeDamage(damage);
-            }
-        }*/
+            // PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            // if (playerHealth != null)
+            // {
+            //     playerHealth.takeDamage(damage);
+            // }
+        }
     }
 
     // Set the target of the enemy
