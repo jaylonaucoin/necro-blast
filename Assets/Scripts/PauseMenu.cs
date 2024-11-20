@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] 
+    private GameObject player; // Reference to the player
+
+    [SerializeField] 
     private GameObject pauseMenu; // Reference to the pause menu UI element
     [SerializeField]
     private GameObject settingsPanel; // Reference to the settings panel
