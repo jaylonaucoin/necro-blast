@@ -38,4 +38,10 @@ public class BrightnessManager : MonoBehaviour
         PlayerPrefs.SetFloat("Brightness", value);
         PlayerPrefs.Save();
     }
+
+    private void OnDestroy()
+    {
+        // Unsubscribe the listener to avoid memory leaks
+        brightnessSlider.onValueChanged.RemoveListener(SetBrightness);
+    }
 }
