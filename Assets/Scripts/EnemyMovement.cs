@@ -5,45 +5,48 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(CharacterController))]
 
-public class EnemyMovement : MonoBehaviour {
+public class EnemyMovement : MonoBehaviour
+{
 
     public float speed = 1f;
     public float minDistance = 1.5f;
     public Transform target;
-	public int damage = 1;
-    
+    public int damage = 1;
+    public int health = 10; // Add health for the enemy
+
     private NavMeshAgent agent;
-	private Animator animator;
-	private CharacterController characterController;
+    private Animator animator;
+    private CharacterController characterController;
 
     // Start is called before the first frame update
-    void Start () 
+    void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-		animator = GetComponent<Animator>();
-		characterController = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
+        characterController = GetComponent<CharacterController>();
         animator.Play("Z_Idle");
 
         //sets the speed of the NavMeshAgent
         agent.speed = speed;
 
-		//sets the stopping distance of the NavMesh
-		agent.stoppingDistance = minDistance;
+        //sets the stopping distance of the NavMesh
+        agent.stoppingDistance = minDistance;
 
         //if theres no target set, assume it is the player
-        if (target == null) {
-
-            if (GameObject.FindWithTag("Player") != null) {
+        if (target == null)
+        {
+            if (GameObject.FindWithTag("Player") != null)
+            {
                 target = GameObject.FindWithTag("Player").GetComponent<Transform>();
             }
         }
-        
     }
-    
+
     // Update is called once per frame
-    void Update () 
+    void Update()
     {
-        if (target == null) {
+        if (target == null)
+        {
             return;
         }
 
@@ -51,35 +54,53 @@ public class EnemyMovement : MonoBehaviour {
         float distance = Vector3.Distance(transform.position, target.position);
 
         //moves towards the target as long as its greater than minimum distance
-        if (distance > minDistance) {
-			//uses NavMeshAgent to move the player
+        if (distance > minDistance)
+        {
             agent.SetDestination(target.position);
             animator.Play("Z_Walk_InPlace");
         }
-		
-		//grabs the current movementSpeed of the enemy
-		float movementSpeed = agent.velocity.magnitude;
 
-		//updates the animator with the current movement speed
-		animator.SetFloat("Speed", movementSpeed);
+        //grabs the current movementSpeed of the enemy
+        float movementSpeed = agent.velocity.magnitude;
+
+        //updates the animator with the current movement speed
+        animator.SetFloat("Speed", movementSpeed);
     }
 
-	//check if the enemy enters the target's collider
-	private void OnTriggerEnter(Collider other)
+    // Method to handle damage
+    public void TakeDamage(int damageAmount)
     {
-        if (other.CompareTag("Player")) {
+        health -= damageAmount;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    // Handle enemy death
+    private void Die()
+    {
+        animator.Play("Z_Death"); // Play death animation
+        Destroy(gameObject, 2f); // Destroy enemy after 2 seconds to allow the animation to play
+    }
+
+    //check if the enemy enters the target's collider
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
             animator.Play("Z_Attack");
             //calls method to take damage
             // PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
-            // if (playerHealth != null)
-            // {
+            // if (playerHealth != null) {
             //     playerHealth.takeDamage(damage);
             // }
         }
     }
 
     // Set the target of the enemy
-    public void SetTarget(Transform newTarget) {
+    public void SetTarget(Transform newTarget)
+    {
         target = newTarget;
     }
 }
