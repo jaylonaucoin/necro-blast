@@ -372,6 +372,91 @@ Transform:
   - {fileID: 1127341221}
   m_Father: {fileID: 1453626209}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &594014938
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 346496031538095658, guid: 225674730ce1f7844aea9e9977076c0a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 789888978219388234, guid: 225674730ce1f7844aea9e9977076c0a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 789888978219388234, guid: 225674730ce1f7844aea9e9977076c0a, type: 3}
+      propertyPath: whatIsGround.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 1947260956440310457, guid: 225674730ce1f7844aea9e9977076c0a, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1947260956440310457, guid: 225674730ce1f7844aea9e9977076c0a, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111267228396598467, guid: 225674730ce1f7844aea9e9977076c0a, type: 3}
+      propertyPath: m_Name
+      value: Zombie2 (1) Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7830024597687217741, guid: 225674730ce1f7844aea9e9977076c0a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121546685554509520, guid: 225674730ce1f7844aea9e9977076c0a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.876
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121546685554509520, guid: 225674730ce1f7844aea9e9977076c0a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121546685554509520, guid: 225674730ce1f7844aea9e9977076c0a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121546685554509520, guid: 225674730ce1f7844aea9e9977076c0a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121546685554509520, guid: 225674730ce1f7844aea9e9977076c0a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121546685554509520, guid: 225674730ce1f7844aea9e9977076c0a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121546685554509520, guid: 225674730ce1f7844aea9e9977076c0a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121546685554509520, guid: 225674730ce1f7844aea9e9977076c0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121546685554509520, guid: 225674730ce1f7844aea9e9977076c0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121546685554509520, guid: 225674730ce1f7844aea9e9977076c0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8914992756345501265, guid: 225674730ce1f7844aea9e9977076c0a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 225674730ce1f7844aea9e9977076c0a, type: 3}
 --- !u!1 &614089303
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,9 +818,9 @@ GameObject:
   - component: {fileID: 1249161685}
   - component: {fileID: 1249161684}
   - component: {fileID: 1249161683}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Walkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1774,3 +1859,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 1122809389}
   - {fileID: 1453626209}
+  - {fileID: 594014938}
