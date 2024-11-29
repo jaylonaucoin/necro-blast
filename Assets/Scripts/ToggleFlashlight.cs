@@ -8,10 +8,10 @@ public class FlashlightToggle : MonoBehaviour
 
     void Start()
     {
-        // Ensure the flashlight is off by default
+        // Ensure the flashlight is on by default
         if (flashlight != null)
         {
-            flashlight.enabled = false;
+            flashlight.enabled = true;
         }
     }
 
