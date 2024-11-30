@@ -12,6 +12,7 @@ TagManager:
   - Dummie
   - LevelPart
   - Turret
+  - FlyingEnemy
   layers:
   - Default
   - TransparentFX
