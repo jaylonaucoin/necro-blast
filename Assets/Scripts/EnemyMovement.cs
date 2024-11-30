@@ -15,8 +15,8 @@ public class EnemyMovement : MonoBehaviour
     public float attackCooldown = 1f; // Time between attacks
 
     [Header("Sound Effects")]
-    public AudioClip walkSound;
-    public AudioClip attackSound;
+    public AudioClip[] walkSounds; // Array of ambient walk sounds
+    public AudioClip[] attackSounds; // Array of attack sounds
     public AudioClip deathSound;
 
     private NavMeshAgent agent;
@@ -24,15 +24,23 @@ public class EnemyMovement : MonoBehaviour
     private CharacterController characterController;
     private AudioSource audioSource;
     private bool isAttacking = false; // To check if the zombie is currently attacking
-    private AudioSource idleMoan;
-    private AudioSource attackSound;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
-        audioSource = GetComponent<AudioSource>();
+
+        // Add an AudioSource component if it doesn't exist
+        if (GetComponent<AudioSource>() == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+        else
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+
         animator.Play("Z_Idle");
 
         // Set the speed and stopping distance for the NavMeshAgent
@@ -49,13 +57,9 @@ public class EnemyMovement : MonoBehaviour
         }
 
         // Start playing ambient walk sound
-        if (walkSound != null)
-        {
-            audioSource.clip = walkSound;
-            audioSource.loop = true;
-            audioSource.Play();
-        }
+        PlayRandomAmbientSound();
     }
+
 
     void Update()
     {
@@ -91,7 +95,6 @@ public class EnemyMovement : MonoBehaviour
 
     private void Die()
     {
-        animator.Play("Z_Death");
         StopAmbientSound();
         PlaySound(deathSound);
         OnZombieDestroyed?.Invoke(gameObject);
@@ -99,17 +102,15 @@ public class EnemyMovement : MonoBehaviour
     }
 
     private IEnumerator FallAndDespawn()
-    {
-        // Wait for the death animation to finish
-        yield return new WaitForSeconds(2f);
+{
+    // Rotate the model to make it fall to the ground
+    //transform.Rotate(90f, 0f, 0f);
 
-        // Rotate the model to make it fall to the ground
-        transform.Rotate(90f, 0f, 0f);
+    // Despawn the enemy after 10 seconds
+    yield return new WaitForSeconds(0f);
+    Destroy(gameObject);
+}
 
-        // Despawn the enemy after 10 seconds
-        yield return new WaitForSeconds(10f);
-        Destroy(gameObject);
-    }
 
     private IEnumerator AttackPlayer()
     {
@@ -120,7 +121,7 @@ public class EnemyMovement : MonoBehaviour
         {
             Debug.Log("Zombie is attacking the player."); // Log attack
             animator.Play("Z_Attack");
-            PlaySound(attackSound);
+            PlayRandomAttackSound();
 
             PlayerHealth playerHealth = target.GetComponent<PlayerHealth>();
             if (playerHealth != null)
@@ -146,7 +147,7 @@ public class EnemyMovement : MonoBehaviour
         {
             animator.Play("Z_Attack");
             StopAmbientSound();
-            PlaySound(attackSound);
+            PlayRandomAttackSound();
         }
     }
 
@@ -165,9 +166,18 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    private void PlayRandomAttackSound()
+    {
+        if (attackSounds.Length > 0)
+        {
+            int randomIndex = Random.Range(0, attackSounds.Length);
+            PlaySound(attackSounds[randomIndex]);
+        }
+    }
+
     private void StopAmbientSound()
     {
-        if (audioSource.isPlaying && audioSource.clip == walkSound)
+        if (audioSource.isPlaying && audioSource.loop)
         {
             audioSource.Pause();
         }
@@ -175,9 +185,18 @@ public class EnemyMovement : MonoBehaviour
 
     private void ResumeAmbientSound()
     {
-        if (walkSound != null && !audioSource.isPlaying)
+        if (walkSounds.Length > 0 && !audioSource.isPlaying)
         {
-            audioSource.clip = walkSound;
+            PlayRandomAmbientSound();
+        }
+    }
+
+    private void PlayRandomAmbientSound()
+    {
+        if (walkSounds.Length > 0)
+        {
+            int randomIndex = Random.Range(0, walkSounds.Length);
+            audioSource.clip = walkSounds[randomIndex];
             audioSource.loop = true;
             audioSource.Play();
         }
