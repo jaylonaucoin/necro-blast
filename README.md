@@ -51,6 +51,10 @@ See the following section for detailed step-by-step instructions on how to insta
 * [Zombie](https://assetstore.unity.com/packages/3d/characters/humanoids/zombie-30232) by [Pxltiger](https://assetstore.unity.com/publishers/11247) is licensed under the [Unity Asset Store EULA](https://unity.com/legal/as-terms).
 * [Simple Modular Dungeon](https://assetstore.unity.com/packages/3d/environments/dungeons/simple-modular-dungeon-259641) by [DanProps](https://assetstore.unity.com/publishers/69920) is licensed under the [Unity Asset Store EULA - Single Entity](https://unity.com/legal/as-terms).
 * [Horror Kick](https://pixabay.com/sound-effects/horror-kick-247743/) by [SoundReality](https://pixabay.com/users/soundreality-31074404/) is licensed under the [Pixabay Content License](https://pixabay.com/service/license-summary/).
+* [A_Dungeon_Ambience_Loop](https://pixabay.com/sound-effects/a-dungeon-ambience-loop-79423/) by [freesound_community](https://pixabay.com/users/freesound_community-46691455/) is licensed under the [Pixabay Content License](https://pixabay.com/service/license-summary/).
+* [Seaside, Port](https://pixabay.com/sound-effects/seaside-port-24581/) by [freesound_community](https://pixabay.com/users/freesound_community-46691455/) is licensed under the [Pixabay Content License](https://pixabay.com/service/license-summary/).
+* [zombie](https://pixabay.com/sound-effects/zombie-15965/) by [Vilches86](https://pixabay.com/users/vilches86-12269887/) is licensed under the [Pixabay Content License](https://pixabay.com/service/license-summary/).
+* [Zombie](https://pixabay.com/sound-effects/zombie-6851/) by [freesound_community](https://pixabay.com/users/freesound_community-46691455/) is licensed under the [Pixabay Content License](https://pixabay.com/service/license-summary/).
 * .
 * .
 * .
