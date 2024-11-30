@@ -592,7 +592,7 @@ GameObject:
   - component: {fileID: 5174276489725529450}
   - component: {fileID: 1944000520795373598}
   - component: {fileID: -2043348976368041968}
-  - component: {fileID: -3476109545180282936}
+  - component: {fileID: -1211916952019063919}
   m_Layer: 0
   m_Name: ZombieFixed
   m_TagString: Dummie
@@ -850,7 +850,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &-3476109545180282936
+--- !u!82 &-1211916952019063919
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -862,16 +862,16 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: daade620f7473da45b7809f647377040, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.58
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 171
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -906,7 +906,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

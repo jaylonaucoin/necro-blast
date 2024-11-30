@@ -18,12 +18,16 @@ public class EnemyMovement : MonoBehaviour
     private Animator animator;
     private CharacterController characterController;
     private bool isAttacking = false; // To check if the zombie is currently attacking
+    private AudioSource idleMoan;
+    private AudioSource attackSound;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
+        idleMoan = GetComponents<AudioSource>()[0];
+        attackSound = GetComponents<AudioSource>()[1];
         animator.Play("Z_Idle");
 
         // Set the speed and stopping distance for the NavMeshAgent
@@ -87,6 +91,9 @@ public class EnemyMovement : MonoBehaviour
         {
             Debug.Log("Zombie is attacking the player."); // Log attack
             animator.Play("Z_Attack");
+            idleMoan.Stop();
+            attackSound.Play();
+            
 
             PlayerHealth playerHealth = target.GetComponent<PlayerHealth>();
             if (playerHealth != null)
@@ -103,6 +110,8 @@ public class EnemyMovement : MonoBehaviour
         }
 
         isAttacking = false;
+        attackSound.Stop();
+        idleMoan.Play();
     }
 
 
@@ -111,6 +120,7 @@ public class EnemyMovement : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             animator.Play("Z_Attack");
+            
         }
     }
 
