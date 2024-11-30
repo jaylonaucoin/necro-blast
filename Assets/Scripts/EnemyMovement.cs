@@ -14,9 +14,15 @@ public class EnemyMovement : MonoBehaviour
     public int health = 10; // Add health for the enemy
     public float attackCooldown = 1f; // Time between attacks
 
+    [Header("Sound Effects")]
+    public AudioClip walkSound;
+    public AudioClip attackSound;
+    public AudioClip deathSound;
+
     private NavMeshAgent agent;
     private Animator animator;
     private CharacterController characterController;
+    private AudioSource audioSource;
     private bool isAttacking = false; // To check if the zombie is currently attacking
 
     void Start()
@@ -24,6 +30,7 @@ public class EnemyMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
+        audioSource = GetComponent<AudioSource>();
         animator.Play("Z_Idle");
 
         // Set the speed and stopping distance for the NavMeshAgent
@@ -37,6 +44,14 @@ public class EnemyMovement : MonoBehaviour
             {
                 target = GameObject.FindWithTag("Player").GetComponent<Transform>();
             }
+        }
+
+        // Start playing ambient walk sound
+        if (walkSound != null)
+        {
+            audioSource.clip = walkSound;
+            audioSource.loop = true;
+            audioSource.Play();
         }
     }
 
@@ -75,18 +90,35 @@ public class EnemyMovement : MonoBehaviour
     private void Die()
     {
         animator.Play("Z_Death");
+        StopAmbientSound();
+        PlaySound(deathSound);
         OnZombieDestroyed?.Invoke(gameObject);
-        Destroy(gameObject, 2f);
+        StartCoroutine(FallAndDespawn());
+    }
+
+    private IEnumerator FallAndDespawn()
+    {
+        // Wait for the death animation to finish
+        yield return new WaitForSeconds(2f);
+
+        // Rotate the model to make it fall to the ground
+        transform.Rotate(90f, 0f, 0f);
+
+        // Despawn the enemy after 10 seconds
+        yield return new WaitForSeconds(10f);
+        Destroy(gameObject);
     }
 
     private IEnumerator AttackPlayer()
     {
         isAttacking = true;
+        StopAmbientSound();
 
         while (Vector3.Distance(transform.position, target.position) <= minDistance)
         {
             Debug.Log("Zombie is attacking the player."); // Log attack
             animator.Play("Z_Attack");
+            PlaySound(attackSound);
 
             PlayerHealth playerHealth = target.GetComponent<PlayerHealth>();
             if (playerHealth != null)
@@ -103,19 +135,49 @@ public class EnemyMovement : MonoBehaviour
         }
 
         isAttacking = false;
+        ResumeAmbientSound();
     }
-
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             animator.Play("Z_Attack");
+            StopAmbientSound();
+            PlaySound(attackSound);
         }
     }
 
     public void SetTarget(Transform newTarget)
     {
         target = newTarget;
+    }
+
+    private void PlaySound(AudioClip clip)
+    {
+        if (clip != null && audioSource != null)
+        {
+            audioSource.Stop(); // Stop ambient sound if playing
+            audioSource.PlayOneShot(clip);
+            Invoke(nameof(ResumeAmbientSound), clip.length); // Resume ambient sound after the clip finishes
+        }
+    }
+
+    private void StopAmbientSound()
+    {
+        if (audioSource.isPlaying && audioSource.clip == walkSound)
+        {
+            audioSource.Pause();
+        }
+    }
+
+    private void ResumeAmbientSound()
+    {
+        if (walkSound != null && !audioSource.isPlaying)
+        {
+            audioSource.clip = walkSound;
+            audioSource.loop = true;
+            audioSource.Play();
+        }
     }
 }
