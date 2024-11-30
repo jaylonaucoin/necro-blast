@@ -77,12 +77,23 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    // Handle enemy death
+    // At the top of the script, add a delegate for the death event
+    public delegate void ZombieDestroyed(GameObject zombie);
+    public event ZombieDestroyed OnZombieDestroyed;
+
     private void Die()
     {
         animator.Play("Z_Death"); // Play death animation
+
+        // Notify listeners (e.g., the spawner) that this zombie is destroyed
+        if (OnZombieDestroyed != null)
+        {
+            OnZombieDestroyed(gameObject);
+        }
+
         Destroy(gameObject, 2f); // Destroy enemy after 2 seconds to allow the animation to play
     }
+
 
     //check if the enemy enters the target's collider
     private void OnTriggerEnter(Collider other)
