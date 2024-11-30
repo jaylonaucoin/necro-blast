@@ -50,6 +50,7 @@ See the following section for detailed step-by-step instructions on how to insta
 * [Mine](https://assetstore.unity.com/packages/3d/environments/dungeons/mine-92461) by [Gregory Seguru](https://assetstore.unity.com/publishers/12719) is licensed under the [Unity Asset Store EULA](https://unity.com/legal/as-terms).
 * [Zombie](https://assetstore.unity.com/packages/3d/characters/humanoids/zombie-30232) by [Pxltiger](https://assetstore.unity.com/publishers/11247) is licensed under the [Unity Asset Store EULA](https://unity.com/legal/as-terms).
 * [Simple Modular Dungeon](https://assetstore.unity.com/packages/3d/environments/dungeons/simple-modular-dungeon-259641) by [DanProps](https://assetstore.unity.com/publishers/69920) is licensed under the [Unity Asset Store EULA - Single Entity](https://unity.com/legal/as-terms).
+* [Horror Kick](https://pixabay.com/sound-effects/horror-kick-247743/) by [SoundReality](https://pixabay.com/users/soundreality-31074404/) is licensed under the [Pixabay Content License](https://pixabay.com/service/license-summary/).
 * .
 * .
 * .
