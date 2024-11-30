@@ -17,6 +17,8 @@ public class TurretEnemy : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+    public float rotationSpeed = 5f; // Speed for rotating towards the player
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
@@ -28,20 +30,41 @@ public class TurretEnemy : MonoBehaviour
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (playerInAttackRange && playerInSightRange) AttackPlayer();
+        if (playerInSightRange)
+        {
+            RotateTowardsPlayer();
+        }
+
+        if (playerInAttackRange && playerInSightRange)
+        {
+            AttackPlayer();
+        }
+    }
+
+    private void RotateTowardsPlayer()
+    {
+        // Calculate the direction to the player
+        Vector3 direction = (player.position - transform.position).normalized;
+        direction.y = 0; // Prevent the turret from tilting up or down
+
+        // Smoothly rotate towards the player
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
     }
 
     private void AttackPlayer()
     {
-        // Look at the player
-        transform.LookAt(player);
-
         if (!alreadyAttacked)
         {
+            // Calculate direction to the player for projectile
+            Vector3 directionToPlayer = (player.position - transform.position).normalized;
+
             // Attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position + transform.forward * 1.5f, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            Rigidbody rb = Instantiate(projectile, transform.position + transform.forward * 1.5f + Vector3.up * 1.0f, Quaternion.identity).GetComponent<Rigidbody>();
+
+            // Apply force directly towards the player's position with some arc adjustment
+            Vector3 forceDirection = (player.position - rb.transform.position).normalized;
+            rb.AddForce(forceDirection * 32f, ForceMode.Impulse);
             // End of attack code
 
             alreadyAttacked = true;
