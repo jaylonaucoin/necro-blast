@@ -1,7 +1,7 @@
 # Necro Blast 
 
-* *Date Created*: 25/10/2024
-* *Last Modification Date*: 25/10/2024
+* *Date Created*: 25 OCT 2024
+* *Last Modification Date*: 01 DEC 2024
 * *Git URL*: <https://git.cs.dal.ca/macdonald4/necro-blast>
 
 ## Author(s)
@@ -44,8 +44,18 @@ See the following section for detailed step-by-step instructions on how to insta
 
 ## Accreditation/Attributions
 
-* "Starter Assets - FirstPerson | Updates in new CharacterController package" (https://assetstore.unity.com/packages/essentials/starter-assets-firstperson-updates-in-new-charactercontroller-pa-196525) by Unity Technologies is licensed under Unity Asset Store EULA (https://unity.com/legal/as-terms).
+* [TV Set](https://assetstore.unity.com/packages/3d/props/electronics/tv-set-26193) by [Dmitriy Dryzhak](https://assetstore.unity.com/publishers/10181) is licensed under the [Unity Asset Store EULA](https://unity.com/legal/as-terms).
+* [Starter Assets - FirstPerson | Updates in new CharacterController package](https://assetstore.unity.com/packages/essentials/starter-assets-firstperson-updates-in-new-charactercontroller-pa-196525) by [Unity Technologies](https://assetstore.unity.com/publishers/1) is licensed under the [Unity Asset Store EULA](https://unity.com/legal/as-terms).
+* [Old Sea Port - Environment](https://assetstore.unity.com/packages/3d/environments/old-sea-port-environment-36897) by [VIVID Arts](https://assetstore.unity.com/publishers/13385) is licensed under the [Unity Asset Store EULA](https://unity.com/legal/as-terms).
+* [Mine](https://assetstore.unity.com/packages/3d/environments/dungeons/mine-92461) by [Gregory Seguru](https://assetstore.unity.com/publishers/12719) is licensed under the [Unity Asset Store EULA](https://unity.com/legal/as-terms).
+* [Zombie](https://assetstore.unity.com/packages/3d/characters/humanoids/zombie-30232) by [Pxltiger](https://assetstore.unity.com/publishers/11247) is licensed under the [Unity Asset Store EULA](https://unity.com/legal/as-terms).
+* [Simple Modular Dungeon](https://assetstore.unity.com/packages/3d/environments/dungeons/simple-modular-dungeon-259641) by [DanProps](https://assetstore.unity.com/publishers/69920) is licensed under the [Unity Asset Store EULA - Single Entity](https://unity.com/legal/as-terms).
+* [Horror Kick](https://pixabay.com/sound-effects/horror-kick-247743/) by [SoundReality](https://pixabay.com/users/soundreality-31074404/) is licensed under the [Pixabay Content License](https://pixabay.com/service/license-summary/).
+* [A_Dungeon_Ambience_Loop](https://pixabay.com/sound-effects/a-dungeon-ambience-loop-79423/) by [freesound_community](https://pixabay.com/users/freesound_community-46691455/) is licensed under the [Pixabay Content License](https://pixabay.com/service/license-summary/).
+* [Seaside, Port](https://pixabay.com/sound-effects/seaside-port-24581/) by [freesound_community](https://pixabay.com/users/freesound_community-46691455/) is licensed under the [Pixabay Content License](https://pixabay.com/service/license-summary/).
+* [zombie](https://pixabay.com/sound-effects/zombie-15965/) by [Vilches86](https://pixabay.com/users/vilches86-12269887/) is licensed under the [Pixabay Content License](https://pixabay.com/service/license-summary/).
+* [Zombie](https://pixabay.com/sound-effects/zombie-6851/) by [freesound_community](https://pixabay.com/users/freesound_community-46691455/) is licensed under the [Pixabay Content License](https://pixabay.com/service/license-summary/).
 * .
 * .
 * .
-* "Name" (URL) by Author is licensed under Unity Asset Store EULA (https://unity.com/legal/as-terms).
+* [Name](URL) by [Author](ProfileURL) is licensed under the [Unity Asset Store EULA](https://unity.com/legal/as-terms).
