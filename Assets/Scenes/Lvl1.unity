@@ -12668,6 +12668,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1637900972}
+    - target: {fileID: 7144327725336399589, guid: a51f3d286c7438049ace657d53de7bf8, type: 3}
+      propertyPath: timeBetweenAttacks
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26397,11 +26401,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4877708227074752482, guid: a51f3d286c7438049ace657d53de7bf8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.994
+      value: -2.878
       objectReference: {fileID: 0}
     - target: {fileID: 4877708227074752482, guid: a51f3d286c7438049ace657d53de7bf8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 24.990639
+      value: 24.313
       objectReference: {fileID: 0}
     - target: {fileID: 4877708227074752482, guid: a51f3d286c7438049ace657d53de7bf8, type: 3}
       propertyPath: m_LocalRotation.w
