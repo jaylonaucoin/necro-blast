@@ -11,6 +11,7 @@ TagManager:
   - BulletSpawn
   - Dummie
   - LevelPart
+  - Turret
   layers:
   - Default
   - TransparentFX

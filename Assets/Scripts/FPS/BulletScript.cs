@@ -47,6 +47,21 @@ public class BulletScript : MonoBehaviour
 
                     Destroy(gameObject);
                 }
+
+                else if (hit.transform.CompareTag("Turret"))
+                {
+                    Instantiate(bloodEffect, hit.point, Quaternion.LookRotation(hit.normal));
+
+                    // Deal damage to turret
+                    TurretEnemy turret = hit.transform.GetComponent<TurretEnemy>();
+                    if (turret != null)
+                    {
+                        turret.TakeDamage(bulletDamage);
+                    }
+
+                    Destroy(gameObject);
+                }
+
             }
             Destroy(gameObject);
         }
