@@ -702,7 +702,8 @@ MonoBehaviour:
   minDistance: 1.5
   target: {fileID: 0}
   damage: 1
-  health: 10
+  health: 5
+  attackCooldown: 2
 --- !u!136 &5174276489725529450
 CapsuleCollider:
   m_ObjectHideFlags: 0
