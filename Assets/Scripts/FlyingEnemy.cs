@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -54,19 +55,22 @@ public class FlyingEnemyMovement : MonoBehaviour
             return;
         }
 
+        // Always face the player
+        Vector3 direction = (target.position - transform.position).normalized;
+        direction.y = 0; // Prevent tilting up or down
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10f);
+
         // Check for sight and attack range
         playerInSightRange = Vector3.Distance(transform.position, target.position) <= sightRange;
         playerInAttackRange = Vector3.Distance(transform.position, target.position) <= attackRange;
 
         if (playerInSightRange)
         {
+            AggressiveTracking();
             if (playerInAttackRange)
             {
                 AttackPlayer();
-            }
-            else
-            {
-                OrbitPlayer();
             }
         }
         else
@@ -75,12 +79,37 @@ public class FlyingEnemyMovement : MonoBehaviour
             agent.SetDestination(target.position);
             animator.Play("Z_Fly");
         }
-
-        // Face the player
-        Vector3 lookDirection = target.position - transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(lookDirection);
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * orbitSpeed);
     }
+
+    private void AggressiveTracking()
+    {
+        float currentDistance = Vector3.Distance(transform.position, target.position);
+
+        // If the enemy is too close, move away
+        if (currentDistance < orbitRadius - 1f)
+        {
+            Vector3 moveDirection = (transform.position - target.position).normalized;
+            Vector3 newPosition = transform.position + moveDirection * approachSpeed * Time.deltaTime;
+            agent.SetDestination(newPosition);
+        }
+        // If the enemy is too far, move closer
+        else if (currentDistance > orbitRadius + 1f)
+        {
+            Vector3 moveDirection = (target.position - transform.position).normalized;
+            Vector3 newPosition = transform.position + moveDirection * approachSpeed * Time.deltaTime;
+            agent.SetDestination(newPosition);
+        }
+        else
+        {
+            // Maintain position by orbiting
+            OrbitPlayer();
+        }
+
+        animator.Play("Z_Fly");
+    }
+
+
+
 
     private void OrbitPlayer()
     {
@@ -101,15 +130,22 @@ public class FlyingEnemyMovement : MonoBehaviour
     {
         if (!alreadyAttacked)
         {
-            // Attack code
-            Rigidbody rb = Instantiate(projectile, transform.position + transform.forward * 1.5f, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            // Calculate the direction to the player
+            Vector3 directionToPlayer = (target.position - transform.position).normalized;
 
+            // Adjust the projectile spawn position slightly in front of the enemy
+            Vector3 spawnPosition = transform.position + transform.forward * 1.5f;
+
+            // Instantiate and launch the projectile
+            Rigidbody rb = Instantiate(projectile, spawnPosition, Quaternion.identity).GetComponent<Rigidbody>();
+            rb.velocity = directionToPlayer * 32f; // Adjust speed if necessary
+
+            // Reset attack timer
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
+
 
     private void ResetAttack()
     {
@@ -118,6 +154,8 @@ public class FlyingEnemyMovement : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
+        if (health <= 0) return; // Prevent taking damage when already dead
+
         health -= damageAmount;
         if (health <= 0)
         {
@@ -127,9 +165,48 @@ public class FlyingEnemyMovement : MonoBehaviour
 
     private void Die()
     {
-        animator.Play("Z_Death"); // Play death animation
-        Destroy(gameObject, 2f); // Destroy enemy after 2 seconds
+        // Stop movement, attacks, and tracking
+        agent.isStopped = true;
+        enabled = false; // Disables Update and other behaviors
+
+        // Start the death fall coroutine
+        StartCoroutine(HandleDeathFall());
     }
+
+    private IEnumerator HandleDeathFall()
+    {
+        animator.Play("Z_Death"); // Play death animation
+
+        // Random rotation speeds for each axis to make it more dynamic
+        float rotationSpeedX = Random.Range(300f, 600f);
+        float rotationSpeedY = Random.Range(300f, 600f);
+        float rotationSpeedZ = Random.Range(300f, 600f);
+
+        // Gradually decrease the height offset and apply rotation
+        while (agent.baseOffset > 0f)
+        {
+            agent.baseOffset -= Time.deltaTime * 5f; // Adjust fall speed as needed
+
+            // Rotate the model across all axes
+            transform.Rotate(
+                rotationSpeedX * Time.deltaTime,
+                rotationSpeedY * Time.deltaTime,
+                rotationSpeedZ * Time.deltaTime,
+                Space.World
+            );
+
+            yield return null; // Wait for the next frame
+        }
+
+        agent.baseOffset = 0f; // Ensure the offset is exactly 0
+
+        // Wait 2 seconds before despawning
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject); // Despawn the enemy
+    }
+
+
+
 
     private void OnTriggerEnter(Collider other)
     {

@@ -402,6 +402,9 @@ MonoBehaviour:
   target: {fileID: 0}
   damage: 1
   health: 10
+  timeBetweenAttacks: 2
+  attackRange: 10
+  sightRange: 15
   projectile: {fileID: 1671149573551003243, guid: 28e40151f912741e898ac5f50ff51604, type: 3}
 --- !u!195 &1081631010435446642
 NavMeshAgent:
