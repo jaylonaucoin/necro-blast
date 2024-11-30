@@ -21,7 +21,8 @@ public class SceneLoaderWithKey : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("No more scenes to load. This is the last level.");
+                    // Loop back to the first scene
+                    SceneManager.LoadScene(0);
                 }
             }
             else
@@ -31,4 +32,5 @@ public class SceneLoaderWithKey : MonoBehaviour
         }
     }
 }
+
 
