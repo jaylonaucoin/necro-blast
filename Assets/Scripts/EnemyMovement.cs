@@ -24,6 +24,8 @@ public class EnemyMovement : MonoBehaviour
     private CharacterController characterController;
     private AudioSource audioSource;
     private bool isAttacking = false; // To check if the zombie is currently attacking
+    private AudioSource idleMoan;
+    private AudioSource attackSound;
 
     void Start()
     {
