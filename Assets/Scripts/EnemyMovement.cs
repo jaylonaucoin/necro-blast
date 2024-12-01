@@ -1,3 +1,18 @@
+/**************************************************************************
+ * Filename: EnemyMovement.cs
+ * Author: Amir Tarbiyat
+ * Description:
+ *     This script controls the behavior and movement of zombie enemies,
+ *     including navigation, attacking, taking damage, dying, and sound
+ *     effects. The zombies utilize NavMesh for pathfinding, trigger animations
+ *     for various states (idle, walking, attacking, dying), and interact with
+ *     the player by causing damage. This script also manages health and the
+ *     destruction of zombie enemies.
+ * 
+ **************************************************************************/
+
+
+
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;

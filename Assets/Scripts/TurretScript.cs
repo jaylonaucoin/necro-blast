@@ -1,3 +1,16 @@
+/**************************************************************************
+ * Filename: TurretEnemy.cs
+ * Author: Amir Tarbiyat
+ * Description:
+ *     This script controls the behavior of a turret-style enemy, including
+ *     detecting the player within sight and attack ranges, rotating towards
+ *     the player, and firing projectiles at the player. The turret can take
+ *     damage and be destroyed when its health is depleted. It also provides
+ *     visual debugging for sight and attack ranges in the editor using Gizmos.
+ * 
+ **************************************************************************/
+
+
 using UnityEngine;
 
 public class TurretEnemy : MonoBehaviour

@@ -1,3 +1,13 @@
+/**************************************************************************
+ * Filename: PlayerHealth.cs
+ * Author: Amir Tarbiyat
+ * Description:
+ *     This script manages the player's health, including taking damage,
+ *     healing, dying, and updating the health display on the screen.
+ * 
+ **************************************************************************/
+
+
 using UnityEngine;
 using UnityEngine.SceneManagement; // Import this to use scene management functions
 

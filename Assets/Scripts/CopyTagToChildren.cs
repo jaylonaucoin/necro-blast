@@ -1,3 +1,16 @@
+/**************************************************************************
+ * Filename: CopyTagToChildren.cs  (Not Used)
+ * Author: Amir Tarbiyat
+ * Description:
+ *     This script recursively assigns the parent's tag to all of its child 
+ *     objects in the hierarchy. It ensures that the tag of the parent is 
+ *     consistently propagated to all descendants, including nested children.
+ *     This is useful for organizing and managing objects with shared 
+ *     behavior or properties based on tags.
+ * 
+ **************************************************************************/
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

@@ -1,3 +1,15 @@
+/**************************************************************************
+ * Filename: Projectile.cs
+ * Author: Amir Tarbiyat
+ * Description:
+ *     This script controls the behavior of a projectile. When the projectile
+ *     collides with an object, it checks for a collision with the player. If
+ *     the player is hit, it deals damage by interacting with the PlayerHealth
+ *     component. The projectile is destroyed upon collision, regardless of
+ *     the target.
+ * 
+ **************************************************************************/
+
 using UnityEngine;
 
 public class Projectile : MonoBehaviour

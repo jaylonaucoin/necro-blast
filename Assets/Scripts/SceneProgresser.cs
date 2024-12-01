@@ -1,3 +1,15 @@
+/**************************************************************************
+ * Filename: SceneLoader.cs
+ * Author: Amir Tarbiyat
+ * Description:
+ *     This script handles scene transitions. When the player enters a trigger
+ *     zone, it loads the next scene in the build order. If the current scene
+ *     is the last one in the build settings, a message is logged indicating
+ *     there are no more levels to load. This is useful for managing level
+ *     progression in a game.
+ * 
+ **************************************************************************/
+
 using UnityEngine;
 using UnityEngine.SceneManagement; // Required to manage scenes
 
