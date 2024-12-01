@@ -144,6 +144,7 @@ MonoBehaviour:
   rotationSpeed: 5
   damageSound: {fileID: 8300000, guid: 958408b32ccf3714ea02821877b0870c, type: 3}
   destructionSound: {fileID: 8300000, guid: d47e6ed162da1f740ad807d00f4679f3, type: 3}
+  explosionEffectPrefab: {fileID: 159918, guid: a0040bf7072bc2f4e82d887d50a9c5e2, type: 3}
 --- !u!65 &4278397378052775484
 BoxCollider:
   m_ObjectHideFlags: 0

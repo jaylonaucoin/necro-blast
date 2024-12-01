@@ -9,7 +9,8 @@
  *     visual debugging for sight and attack ranges in the editor using Gizmos.
  *     When the turret takes damage, it plays a sound, which can be customized
  *     in the inspector without requiring an AudioSource component to be attached.
- *     Additionally, it plays a destruction sound when the turret is destroyed.
+ *     Additionally, it plays a destruction sound and an explosion effect when
+ *     the turret is destroyed.
  * 
  **************************************************************************/
 
@@ -39,6 +40,10 @@ public class TurretEnemy : MonoBehaviour
     public AudioClip damageSound; // Audio clip to play when taking damage
     public AudioClip destructionSound; // Audio clip to play when destroyed
 
+    // Explosion Effect
+    public GameObject explosionEffectPrefab; // Explosion effect prefab to instantiate when destroyed
+    private bool isDestroyed = false; // To prevent repeated destruction
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
@@ -46,6 +51,8 @@ public class TurretEnemy : MonoBehaviour
 
     private void Update()
     {
+        if (isDestroyed) return; // Stop all actions if destroyed
+
         // Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
@@ -114,12 +121,25 @@ public class TurretEnemy : MonoBehaviour
             Destroy(tempAudioSource, damageSound.length); // Destroy the temporary GameObject after sound finishes playing
         }
 
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+        if (health <= 0 && !isDestroyed) // Ensure the enemy is only destroyed once
+        {
+            isDestroyed = true;
+            DestroyEnemy();
+        }
     }
 
     private void DestroyEnemy()
     {
-        // Play destruction sound if available
+        // Stop attacking and other behaviors
+        CancelInvoke();
+        alreadyAttacked = true;
+
+        // Play destruction sound and instantiate explosion effect if available
+        if (explosionEffectPrefab != null)
+        {
+            Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
+        }
+
         if (destructionSound != null)
         {
             GameObject tempAudioSource = new GameObject("TempAudio");
@@ -132,6 +152,7 @@ public class TurretEnemy : MonoBehaviour
             Destroy(tempAudioSource, destructionSound.length); // Destroy the temporary GameObject after sound finishes playing
         }
 
+        // Cull the model (destroy the enemy GameObject)
         Destroy(gameObject);
     }
 
