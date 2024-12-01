@@ -716,9 +716,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1225b0f997026d64fa600c3fd93f1a74, type: 3}
   - {fileID: 8300000, guid: 8b9826c915109c446be0c38d54721a2d, type: 3}
   - {fileID: 8300000, guid: 9f8a1e6741a342647b9c0055e1e0a7b8, type: 3}
-  deathSound: {fileID: 8300000, guid: 5cd921b91deac4f47b05c451951f7a53, type: 3}
+  damageSounds:
+  - {fileID: 8300000, guid: 75adfe9a619833445a701305b983e548, type: 3}
+  deathSound: {fileID: 8300000, guid: 75adfe9a619833445a701305b983e548, type: 3}
   walkSoundVolume: 0.15
   attackSoundVolume: 0.7
+  damageSoundVolume: 0.6
   deathSoundVolume: 1
 --- !u!136 &5174276489725529450
 CapsuleCollider:

@@ -37,9 +37,11 @@ public class EnemyMovement : MonoBehaviour
     [Header("Sound Effects")]
     public AudioClip[] walkSounds; // Array of ambient walk sounds
     public AudioClip[] attackSounds; // Array of attack sounds
+    public AudioClip[] damageSounds; // Array of damage sounds
     public AudioClip deathSound;
     public float walkSoundVolume = 0.5f; // Volume for walk sounds
     public float attackSoundVolume = 0.7f; // Volume for attack sounds
+    public float damageSoundVolume = 0.6f; // Volume for damage sounds
     public float deathSoundVolume = 1.0f; // Volume for death sound
 
     private NavMeshAgent agent;
@@ -106,6 +108,7 @@ public class EnemyMovement : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         health -= damageAmount;
+        PlayRandomDamageSound(); // Play damage sound when the enemy takes damage
         if (health <= 0)
         {
             Die();
@@ -213,6 +216,15 @@ public class EnemyMovement : MonoBehaviour
         {
             int randomIndex = Random.Range(0, attackSounds.Length);
             PlaySound(attackSounds[randomIndex], attackSoundVolume);
+        }
+    }
+
+    private void PlayRandomDamageSound()
+    {
+        if (damageSounds.Length > 0)
+        {
+            int randomIndex = Random.Range(0, damageSounds.Length);
+            PlaySound(damageSounds[randomIndex], damageSoundVolume);
         }
     }
 

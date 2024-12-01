@@ -1,4 +1,4 @@
-# Necro Blast 
+# Necro Blast! 
 
 * *Date Created*: 25 OCT 2024
 * *Last Modification Date*: 01 DEC 2024
@@ -45,7 +45,6 @@ See the following section for detailed step-by-step instructions on how to insta
 ## Accreditation/Attributions
 
 * [TV Set](https://assetstore.unity.com/packages/3d/props/electronics/tv-set-26193) by [Dmitriy Dryzhak](https://assetstore.unity.com/publishers/10181) is licensed under the [Unity Asset Store EULA](https://unity.com/legal/as-terms).
-* [Starter Assets - FirstPerson | Updates in new CharacterController package](https://assetstore.unity.com/packages/essentials/starter-assets-firstperson-updates-in-new-charactercontroller-pa-196525) by [Unity Technologies](https://assetstore.unity.com/publishers/1) is licensed under the [Unity Asset Store EULA](https://unity.com/legal/as-terms).
 * [Old Sea Port - Environment](https://assetstore.unity.com/packages/3d/environments/old-sea-port-environment-36897) by [VIVID Arts](https://assetstore.unity.com/publishers/13385) is licensed under the [Unity Asset Store EULA](https://unity.com/legal/as-terms).
 * [Mine](https://assetstore.unity.com/packages/3d/environments/dungeons/mine-92461) by [Gregory Seguru](https://assetstore.unity.com/publishers/12719) is licensed under the [Unity Asset Store EULA](https://unity.com/legal/as-terms).
 * [Zombie](https://assetstore.unity.com/packages/3d/characters/humanoids/zombie-30232) by [Pxltiger](https://assetstore.unity.com/publishers/11247) is licensed under the [Unity Asset Store EULA](https://unity.com/legal/as-terms).
@@ -55,6 +54,11 @@ See the following section for detailed step-by-step instructions on how to insta
 * [Seaside, Port](https://pixabay.com/sound-effects/seaside-port-24581/) by [freesound_community](https://pixabay.com/users/freesound_community-46691455/) is licensed under the [Pixabay Content License](https://pixabay.com/service/license-summary/).
 * [zombie](https://pixabay.com/sound-effects/zombie-15965/) by [Vilches86](https://pixabay.com/users/vilches86-12269887/) is licensed under the [Pixabay Content License](https://pixabay.com/service/license-summary/).
 * [Zombie](https://pixabay.com/sound-effects/zombie-6851/) by [freesound_community](https://pixabay.com/users/freesound_community-46691455/) is licensed under the [Pixabay Content License](https://pixabay.com/service/license-summary/).
+* [Explosive Realistic VFX Texture Free](https://assetstore.unity.com/packages/vfx/particles/fire-explosions/explosive-realistic-vfx-texture-free-34541) by [Gustav Hagerling] (https://assetstore.unity.com/publishers/4294) is licensed under the [Unity Asset Store EULA](https://unity.com/legal/as-terms).
+* [Free Sound Effects Pack](https://assetstore.unity.com/packages/audio/sound-fx/free-sound-effects-pack-155776) by [Olivier Girardot](https://assetstore.unity.com/publishers/39771) is licensed under the [Unity Asset Store EULA](https://unity.com/legal/as-terms).
+* [Low poly combat drone](https://assetstore.unity.com/packages/3d/low-poly-combat-drone-82234) by [VoodooPlay](https://assetstore.unity.com/publishers/9657) is licensed under the [Unity Asset Store EULA](https://unity.com/legal/as-terms)
+* [Robo's turret](https://assetstore.unity.com/packages/3d/environments/sci-fi/robo-s-turret-free-sample-147413) by [RoboCG](https://assetstore.unity.com/publishers/14354) is licensed under the [Unity Asset Store EULA](https://unity.com/legal/as-terms).
+* .
 * .
 * .
 * .

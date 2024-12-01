@@ -269,6 +269,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 180540479}
     m_Modifications:
+    - target: {fileID: 1454373857832846, guid: 57bc482487154a64085c1d0847e454b3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1933125203065102, guid: 57bc482487154a64085c1d0847e454b3, type: 3}
       propertyPath: m_Name
       value: Lantern (1)
@@ -351,11 +355,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 108990059368549358, guid: 57bc482487154a64085c1d0847e454b3, type: 3}
       propertyPath: m_Intensity
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 108990059368549358, guid: 57bc482487154a64085c1d0847e454b3, type: 3}
       propertyPath: m_Lightmapping
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1861,7 +1865,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7320078976409303119, guid: 195e2ff5c8c3740748f3a31c7ea4d8b0, type: 3}
       propertyPath: maxZombies
-      value: 15
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7320078976409303119, guid: 195e2ff5c8c3740748f3a31c7ea4d8b0, type: 3}
       propertyPath: zombiePrefab
@@ -1869,7 +1873,7 @@ PrefabInstance:
       objectReference: {fileID: 9067016033770192964, guid: 21968b557c8bff94badbb0250ae5fa5a, type: 3}
     - target: {fileID: 7320078976409303119, guid: 195e2ff5c8c3740748f3a31c7ea4d8b0, type: 3}
       propertyPath: spawnInterval
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2587,7 +2591,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8cd9a9d4d6700ed4eb1280fac44c8c22, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6d2e2db0b97a8c84e9b7aba22496d5fe, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
@@ -4512,15 +4516,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4877708227074752482, guid: a51f3d286c7438049ace657d53de7bf8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.49521804
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4877708227074752482, guid: a51f3d286c7438049ace657d53de7bf8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.030915976
+      value: 0.007
       objectReference: {fileID: 0}
     - target: {fileID: 4877708227074752482, guid: a51f3d286c7438049ace657d53de7bf8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.5807385
+      value: 6.387
       objectReference: {fileID: 0}
     - target: {fileID: 4877708227074752482, guid: a51f3d286c7438049ace657d53de7bf8, type: 3}
       propertyPath: m_LocalRotation.w

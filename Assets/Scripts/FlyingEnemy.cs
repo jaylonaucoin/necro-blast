@@ -51,6 +51,7 @@ public class FlyingEnemyMovement : MonoBehaviour
     private bool alreadyAttacked;
     private bool playerInSightRange;
     private bool playerInAttackRange;
+    private bool hasPlayedFallingSound = false; // Ensure falling sound only plays once
 
     // Start is called before the first frame update
     void Start()
@@ -212,18 +213,19 @@ public class FlyingEnemyMovement : MonoBehaviour
     {
         animator.Play("Z_Death"); // Play death animation
 
-        // Play falling sound if available
-        if (fallingSound != null)
+        // Play falling sound if available and hasn't been played yet
+        if (fallingSound != null && !hasPlayedFallingSound)
         {
+            hasPlayedFallingSound = true;
             GameObject tempAudioSource = new GameObject("TempAudio");
             tempAudioSource.transform.position = transform.position;
 
             AudioSource audioSource = tempAudioSource.AddComponent<AudioSource>();
             audioSource.clip = fallingSound;
-            audioSource.loop = true;
+            audioSource.loop = false;
             audioSource.Play();
 
-            Destroy(tempAudioSource, 10f); // Destroy the temporary GameObject after a reasonable amount of time
+            Destroy(tempAudioSource, fallingSound.length); // Destroy the temporary GameObject after sound finishes playing
         }
 
         // Random rotation speeds for each axis to make it more dynamic
@@ -248,15 +250,6 @@ public class FlyingEnemyMovement : MonoBehaviour
         }
 
         agent.baseOffset = 0f; // Ensure the offset is exactly 0
-
-        // Stop falling sound
-        if (fallingSound != null)
-        {
-            GameObject tempAudioSource = new GameObject("TempAudio");
-            tempAudioSource.transform.position = transform.position;
-            AudioSource audioSource = tempAudioSource.AddComponent<AudioSource>();
-            audioSource.Stop();
-        }
 
         // Play explosion sound and instantiate explosion effect if available
         if (explosionEffectPrefab != null)

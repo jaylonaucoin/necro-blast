@@ -239,6 +239,6 @@ MonoBehaviour:
   sightRange: 15
   projectile: {fileID: 1671149573551003243, guid: 28e40151f912741e898ac5f50ff51604, type: 3}
   damageSound: {fileID: 8300000, guid: 2e071f5b8b8467d45a5e6e24c23c6ad4, type: 3}
-  fallingSound: {fileID: 8300000, guid: 65b3207f91d67094e87be85dbe54c89d, type: 3}
+  fallingSound: {fileID: 8300000, guid: 281e15cc92254794eaf05caf4d044b76, type: 3}
   explosionSound: {fileID: 8300000, guid: 1fd31868d68903d4f9e2c4a3b7ef98f3, type: 3}
   explosionEffectPrefab: {fileID: 159918, guid: a0040bf7072bc2f4e82d887d50a9c5e2, type: 3}
