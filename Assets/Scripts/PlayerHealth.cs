@@ -6,15 +6,19 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth = 100f;
     private float currentHealth;
 
+    public TextMesh healthTextMesh; // Reference to the legacy Text Mesh
+
     void Start()
     {
         currentHealth = maxHealth; // Initialize current health to max health at the start
+        UpdateHealthText(); // Update the text at the start
     }
 
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
         Debug.Log($"Player took {damage} damage. Current health: {currentHealth}");
+        UpdateHealthText(); // Update the text
 
         if (currentHealth <= 0)
         {
@@ -25,11 +29,9 @@ public class PlayerHealth : MonoBehaviour
     public void Heal(float amount)
     {
         currentHealth += amount;
-        if (currentHealth > maxHealth)
-        {
-            currentHealth = maxHealth; // Clamp health to max value
-        }
+        currentHealth = Mathf.Min(currentHealth, maxHealth); // Clamp health to max value
         Debug.Log($"Player healed by {amount}. Current health: {currentHealth}");
+        UpdateHealthText(); // Update the text
     }
 
     private void Die()
@@ -41,5 +43,13 @@ public class PlayerHealth : MonoBehaviour
     private void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void UpdateHealthText()
+    {
+        if (healthTextMesh != null)
+        {
+            healthTextMesh.text = $"{currentHealth}/{maxHealth}";
+        }
     }
 }
