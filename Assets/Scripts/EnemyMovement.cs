@@ -1,6 +1,6 @@
 /**************************************************************************
  * Filename: EnemyMovement.cs
- * Author: Amir Tarbiyat
+ * Author: Amir Tarbiyat , Tyler MacDonald
  * Description:
  *     This script controls the behavior and movement of zombie enemies,
  *     including navigation, attacking, taking damage, dying, and sound
