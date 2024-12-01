@@ -34,6 +34,14 @@ public class FlyingEnemyMovement : MonoBehaviour
     public float sightRange = 15f;
     public GameObject projectile;
 
+    // Audio
+    public AudioClip damageSound; // Audio clip to play when taking damage
+    public AudioClip fallingSound; // Audio clip to play when falling
+    public AudioClip explosionSound; // Audio clip to play when hitting the ground
+
+    // Explosion Effect
+    public GameObject explosionEffectPrefab; // Explosion effect prefab to instantiate when destroyed
+
     private NavMeshAgent agent;
     private Animator animator;
     private float angle = 0f;
@@ -123,9 +131,6 @@ public class FlyingEnemyMovement : MonoBehaviour
         animator.Play("Z_Fly");
     }
 
-
-
-
     private void OrbitPlayer()
     {
         // Increment the angle for circular motion
@@ -161,7 +166,6 @@ public class FlyingEnemyMovement : MonoBehaviour
         }
     }
 
-
     private void ResetAttack()
     {
         alreadyAttacked = false;
@@ -172,6 +176,20 @@ public class FlyingEnemyMovement : MonoBehaviour
         if (health <= 0) return; // Prevent taking damage when already dead
 
         health -= damageAmount;
+
+        // Play damage sound if available
+        if (damageSound != null)
+        {
+            GameObject tempAudioSource = new GameObject("TempAudio");
+            tempAudioSource.transform.position = transform.position;
+
+            AudioSource audioSource = tempAudioSource.AddComponent<AudioSource>();
+            audioSource.clip = damageSound;
+            audioSource.Play();
+
+            Destroy(tempAudioSource, damageSound.length); // Destroy the temporary GameObject after sound finishes playing
+        }
+
         if (health <= 0)
         {
             Die();
@@ -191,6 +209,20 @@ public class FlyingEnemyMovement : MonoBehaviour
     private IEnumerator HandleDeathFall()
     {
         animator.Play("Z_Death"); // Play death animation
+
+        // Play falling sound if available
+        if (fallingSound != null)
+        {
+            GameObject tempAudioSource = new GameObject("TempAudio");
+            tempAudioSource.transform.position = transform.position;
+
+            AudioSource audioSource = tempAudioSource.AddComponent<AudioSource>();
+            audioSource.clip = fallingSound;
+            audioSource.loop = true;
+            audioSource.Play();
+
+            Destroy(tempAudioSource, 10f); // Destroy the temporary GameObject after a reasonable amount of time
+        }
 
         // Random rotation speeds for each axis to make it more dynamic
         float rotationSpeedX = Random.Range(300f, 600f);
@@ -215,21 +247,45 @@ public class FlyingEnemyMovement : MonoBehaviour
 
         agent.baseOffset = 0f; // Ensure the offset is exactly 0
 
+        // Stop falling sound
+        if (fallingSound != null)
+        {
+            GameObject tempAudioSource = new GameObject("TempAudio");
+            tempAudioSource.transform.position = transform.position;
+            AudioSource audioSource = tempAudioSource.AddComponent<AudioSource>();
+            audioSource.Stop();
+        }
+
+        // Play explosion sound and instantiate explosion effect if available
+        if (explosionEffectPrefab != null)
+        {
+            Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
+        }
+
+        if (explosionSound != null)
+        {
+            GameObject tempAudioSource = new GameObject("TempAudio");
+            tempAudioSource.transform.position = transform.position;
+
+            AudioSource audioSource = tempAudioSource.AddComponent<AudioSource>();
+            audioSource.clip = explosionSound;
+            audioSource.Play();
+
+            Destroy(tempAudioSource, explosionSound.length); // Destroy the temporary GameObject after sound finishes playing
+        }
+
         // Wait 2 seconds before despawning
         yield return new WaitForSeconds(2f);
         Destroy(gameObject); // Despawn the enemy
     }
 
-
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            animator.Play("Z_Attack");
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        animator.Play("Z_Attack");
+    //    }
+    //}
 
     public void SetTarget(Transform newTarget)
     {
