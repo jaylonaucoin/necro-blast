@@ -416,7 +416,7 @@ MonoBehaviour:
   topAngleView: 60
   bottomAngleView: -45
   weapon: {fileID: 0}
-  showFps: 1
+  showFps: 0
 --- !u!114 &11414154
 MonoBehaviour:
   m_ObjectHideFlags: 0
