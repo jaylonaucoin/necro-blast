@@ -1,16 +1,18 @@
 /**************************************************************************
- * Filename: FlyingEnemyMovement.cs
- * Author: Amir Tarbiyat B00882695
+ * Filename: FlyingEnemy.cs
+ * Author: Amir Tarbiyat
  * Description:
  *     This script controls the movement and behavior of flying enemies.
  *     The enemy can orbit around the player at a specified radius, track 
  *     and approach the player aggressively, and attack using projectiles 
  *     when within range. It also manages health, damage handling, and 
- *     a dynamic death sequence with animations and effects. The enemy uses 
- *     NavMesh for pathfinding and includes visual debugging for sight 
- *     and attack ranges.
+ *     a dynamic death sequence with animations, sound effects, and an 
+ *     explosion effect upon hitting the ground. The enemy uses NavMesh 
+ *     for pathfinding and includes volume controls for different sound 
+ *     effects such as taking damage, falling, and exploding.
  * 
  **************************************************************************/
+
 
 
 using System.Collections;

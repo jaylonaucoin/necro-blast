@@ -6,8 +6,9 @@
  *     including navigation, attacking, taking damage, dying, and sound
  *     effects. The zombies utilize NavMesh for pathfinding, trigger animations
  *     for various states (idle, walking, attacking, dying), and interact with
- *     the player by causing damage. This script also manages health and the
- *     destruction of zombie enemies.
+ *     the player by causing damage. This script also manages health, the
+ *     destruction of zombie enemies, and volume control for different sound
+ *     effects, allowing customization of walk, attack, and death sound levels.
  * 
  **************************************************************************/
 
@@ -37,6 +38,9 @@ public class EnemyMovement : MonoBehaviour
     public AudioClip[] walkSounds; // Array of ambient walk sounds
     public AudioClip[] attackSounds; // Array of attack sounds
     public AudioClip deathSound;
+    public float walkSoundVolume = 0.5f; // Volume for walk sounds
+    public float attackSoundVolume = 0.7f; // Volume for attack sounds
+    public float deathSoundVolume = 1.0f; // Volume for death sound
 
     private NavMeshAgent agent;
     private Animator animator;
@@ -114,7 +118,7 @@ public class EnemyMovement : MonoBehaviour
     private void Die()
     {
         StopAmbientSound();
-        PlaySound(deathSound);
+        PlaySound(deathSound, deathSoundVolume);
         SpawnBloodEffects(); // Spawn blood effects upon death
         OnZombieDestroyed?.Invoke(gameObject);
         StartCoroutine(FallAndDespawn());
@@ -192,11 +196,12 @@ public class EnemyMovement : MonoBehaviour
         target = newTarget;
     }
 
-    private void PlaySound(AudioClip clip)
+    private void PlaySound(AudioClip clip, float volume)
     {
         if (clip != null && audioSource != null)
         {
             audioSource.Stop(); // Stop ambient sound if playing
+            audioSource.volume = volume;
             audioSource.PlayOneShot(clip);
             Invoke(nameof(ResumeAmbientSound), clip.length); // Resume ambient sound after the clip finishes
         }
@@ -207,7 +212,7 @@ public class EnemyMovement : MonoBehaviour
         if (attackSounds.Length > 0)
         {
             int randomIndex = Random.Range(0, attackSounds.Length);
-            PlaySound(attackSounds[randomIndex]);
+            PlaySound(attackSounds[randomIndex], attackSoundVolume);
         }
     }
 
@@ -233,6 +238,7 @@ public class EnemyMovement : MonoBehaviour
         {
             int randomIndex = Random.Range(0, walkSounds.Length);
             audioSource.clip = walkSounds[randomIndex];
+            audioSource.volume = walkSoundVolume;
             audioSource.loop = true;
             audioSource.Play();
         }
