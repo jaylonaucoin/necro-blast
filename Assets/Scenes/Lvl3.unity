@@ -9831,7 +9831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e3606fd03707e45a0905f0e06ac1c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyPickupSound: {fileID: 0}
+  keyPickupSound: {fileID: 8300000, guid: 34f9cbd28a9740349b6cc2f5e280dda3, type: 3}
 --- !u!4 &725198240 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4976853331106008, guid: 57bc482487154a64085c1d0847e454b3, type: 3}
