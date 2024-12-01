@@ -40,6 +40,7 @@ public class FlyingEnemyMovement : MonoBehaviour
     public AudioClip damageSound; // Audio clip to play when taking damage
     public AudioClip fallingSound; // Audio clip to play when falling
     public AudioClip explosionSound; // Audio clip to play when hitting the ground
+    public AudioClip attackSound; // Audio clip to play when attacking
 
     // Explosion Effect
     public GameObject explosionEffectPrefab; // Explosion effect prefab to instantiate when destroyed
@@ -153,6 +154,19 @@ public class FlyingEnemyMovement : MonoBehaviour
     {
         if (!alreadyAttacked)
         {
+            // Play attack sound if available
+            if (attackSound != null)
+            {
+                GameObject tempAudioSource = new GameObject("TempAudio");
+                tempAudioSource.transform.position = transform.position;
+
+                AudioSource audioSource = tempAudioSource.AddComponent<AudioSource>();
+                audioSource.clip = attackSound;
+                audioSource.Play();
+
+                Destroy(tempAudioSource, attackSound.length); // Destroy the temporary GameObject after sound finishes playing
+            }
+
             // Calculate the direction to the player
             Vector3 directionToPlayer = (target.position - transform.position).normalized;
 

@@ -10,10 +10,9 @@
  *     When the turret takes damage, it plays a sound, which can be customized
  *     in the inspector without requiring an AudioSource component to be attached.
  *     Additionally, it plays a destruction sound and an explosion effect when
- *     the turret is destroyed.
- * 
+ *     the turret is destroyed. A sound effect is also played whenever the turret
+ *     fires a projectile at the player, enhancing the feedback for attacks.
  **************************************************************************/
-
 
 using UnityEngine;
 
@@ -30,15 +29,16 @@ public class TurretEnemy : MonoBehaviour
     bool alreadyAttacked;
     public GameObject projectile;
 
+    // Audio
+    public AudioClip attackSound; // Audio clip to play when attacking
+    public AudioClip damageSound; // Audio clip to play when taking damage
+    public AudioClip destructionSound; // Audio clip to play when destroyed
+
     // Ranges
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
     public float rotationSpeed = 5f; // Speed for rotating towards the player
-
-    // Audio
-    public AudioClip damageSound; // Audio clip to play when taking damage
-    public AudioClip destructionSound; // Audio clip to play when destroyed
 
     // Explosion Effect
     public GameObject explosionEffectPrefab; // Explosion effect prefab to instantiate when destroyed
@@ -92,7 +92,19 @@ public class TurretEnemy : MonoBehaviour
             // Apply force directly towards the player's position with some arc adjustment
             Vector3 forceDirection = (player.position - rb.transform.position).normalized;
             rb.AddForce(forceDirection * 32f, ForceMode.Impulse);
-            // End of attack code
+
+            // Play attack sound if available
+            if (attackSound != null)
+            {
+                GameObject tempAudioSource = new GameObject("TempAudio");
+                tempAudioSource.transform.position = transform.position;
+
+                AudioSource audioSource = tempAudioSource.AddComponent<AudioSource>();
+                audioSource.clip = attackSound;
+                audioSource.Play();
+
+                Destroy(tempAudioSource, attackSound.length); // Destroy the temporary GameObject after sound finishes playing
+            }
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);

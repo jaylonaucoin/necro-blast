@@ -53,12 +53,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5641853383915280911, guid: 84065ceaff67e824890b3d4afe8729af, type: 3}
+      propertyPath: speed
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641853383915280911, guid: 84065ceaff67e824890b3d4afe8729af, type: 3}
       propertyPath: damage
       value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5641853383915280911, guid: 84065ceaff67e824890b3d4afe8729af, type: 3}
       propertyPath: health
-      value: 37
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 5641853383915280911, guid: 84065ceaff67e824890b3d4afe8729af, type: 3}
       propertyPath: attackCooldown

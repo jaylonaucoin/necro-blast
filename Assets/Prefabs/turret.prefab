@@ -137,13 +137,14 @@ MonoBehaviour:
   health: 27
   timeBetweenAttacks: 3
   projectile: {fileID: 1671149573551003243, guid: 28e40151f912741e898ac5f50ff51604, type: 3}
-  sightRange: 8
-  attackRange: 8
+  attackSound: {fileID: 8300000, guid: 5ff823f546b52574a931e1d9b44290a6, type: 3}
+  damageSound: {fileID: 8300000, guid: 958408b32ccf3714ea02821877b0870c, type: 3}
+  destructionSound: {fileID: 8300000, guid: d47e6ed162da1f740ad807d00f4679f3, type: 3}
+  sightRange: 12
+  attackRange: 12
   playerInSightRange: 0
   playerInAttackRange: 0
   rotationSpeed: 5
-  damageSound: {fileID: 8300000, guid: 958408b32ccf3714ea02821877b0870c, type: 3}
-  destructionSound: {fileID: 8300000, guid: d47e6ed162da1f740ad807d00f4679f3, type: 3}
   explosionEffectPrefab: {fileID: 159918, guid: a0040bf7072bc2f4e82d887d50a9c5e2, type: 3}
 --- !u!65 &4278397378052775484
 BoxCollider:
