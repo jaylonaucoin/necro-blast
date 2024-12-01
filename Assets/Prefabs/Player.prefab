@@ -233,7 +233,6 @@ GameObject:
   - component: {fileID: 11478776}
   - component: {fileID: 11414154}
   - component: {fileID: 2326583515644370355}
-  - component: {fileID: 5889083553707322133}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -455,20 +454,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   healthTextMesh: {fileID: 4468519291691740864}
---- !u!114 &5889083553707322133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173116}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dff4cfc20a5d5c04283c022409a05717, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  healthTextMesh: {fileID: 4468519291691740864}
+  regenDelay: 5
+  regenAmount: 2
 --- !u!1 &196378
 GameObject:
   m_ObjectHideFlags: 0
