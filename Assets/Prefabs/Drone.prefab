@@ -233,7 +233,7 @@ MonoBehaviour:
   approachSpeed: 0.5
   target: {fileID: 0}
   damage: 1
-  health: 20
+  health: 40
   timeBetweenAttacks: 2
   attackRange: 10
   sightRange: 15
