@@ -1,3 +1,14 @@
+/**************************************************************************
+ * Filename: FlashlightToggle.cs
+ * Author: Amir Tarbiyat
+ * Description:
+ *     This script allows the player to toggle a flashlight on and off using
+ *     the "F" key. The flashlight is enabled by default when the game starts.
+ *     This functionality is useful for gameplay elements such as exploration
+ *     in dark environments.
+ * 
+ **************************************************************************/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

@@ -1,4 +1,19 @@
-﻿using UnityEngine;
+﻿/**************************************************************************
+ * Filename: BulletScript.cs
+ * Original Author: Easy FPS asset
+ * Modified By: Amir Tarbiyat
+ * Description:
+ *     This script handles the behavior of a bullet, including raycasting to
+ *     detect collisions with objects, spawning decals or effects upon impact,
+ *     and dealing damage to various enemy types (e.g., dummies, turrets,
+ *     flying enemies). The script also ignores specified layers during the
+ *     raycast. Heavily modified from the original to include additional 
+ *     functionality and enemy interactions.
+ * 
+ **************************************************************************/
+
+
+using UnityEngine;
 using System.Collections;
 
 public class BulletScript : MonoBehaviour
