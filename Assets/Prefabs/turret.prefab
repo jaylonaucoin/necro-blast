@@ -134,13 +134,14 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 512
-  health: 25
+  health: 27
   timeBetweenAttacks: 3
   projectile: {fileID: 1671149573551003243, guid: 28e40151f912741e898ac5f50ff51604, type: 3}
   sightRange: 8
   attackRange: 8
   playerInSightRange: 0
   playerInAttackRange: 0
+  rotationSpeed: 5
 --- !u!65 &4278397378052775484
 BoxCollider:
   m_ObjectHideFlags: 0
