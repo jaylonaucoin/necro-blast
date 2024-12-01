@@ -699,7 +699,7 @@ MonoBehaviour:
   speed: 1
   minDistance: 1.5
   target: {fileID: 0}
-  damage: 1
+  damage: 7
   health: 15
   attackCooldown: 2
   walkSounds:
