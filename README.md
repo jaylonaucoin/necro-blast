@@ -58,8 +58,3 @@ See the following section for detailed step-by-step instructions on how to insta
 * [Free Sound Effects Pack](https://assetstore.unity.com/packages/audio/sound-fx/free-sound-effects-pack-155776) by [Olivier Girardot](https://assetstore.unity.com/publishers/39771) is licensed under the [Unity Asset Store EULA](https://unity.com/legal/as-terms).
 * [Low poly combat drone](https://assetstore.unity.com/packages/3d/low-poly-combat-drone-82234) by [VoodooPlay](https://assetstore.unity.com/publishers/9657) is licensed under the [Unity Asset Store EULA](https://unity.com/legal/as-terms)
 * [Robo's turret](https://assetstore.unity.com/packages/3d/environments/sci-fi/robo-s-turret-free-sample-147413) by [RoboCG](https://assetstore.unity.com/publishers/14354) is licensed under the [Unity Asset Store EULA](https://unity.com/legal/as-terms).
-* .
-* .
-* .
-* .
-* [Name](URL) by [Author](ProfileURL) is licensed under the [Unity Asset Store EULA](https://unity.com/legal/as-terms).
