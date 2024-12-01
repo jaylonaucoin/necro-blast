@@ -1,6 +1,6 @@
 /**************************************************************************
  * Filename: SceneLoader.cs
- * Author: Amir Tarbiyat
+ * Author: Amir Tarbiyat B00882695
  * Description:
  *     This script handles scene transitions. When the player enters a trigger
  *     zone, it loads the next scene in the build order. If the current scene

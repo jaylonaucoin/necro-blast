@@ -1,6 +1,6 @@
 /**************************************************************************
  * Filename: FlyingEnemyMovement.cs
- * Author: Amir Tarbiyat
+ * Author: Amir Tarbiyat B00882695
  * Description:
  *     This script controls the movement and behavior of flying enemies.
  *     The enemy can orbit around the player at a specified radius, track 

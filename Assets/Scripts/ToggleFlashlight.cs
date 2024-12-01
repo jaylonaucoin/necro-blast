@@ -1,6 +1,6 @@
 /**************************************************************************
  * Filename: FlashlightToggle.cs
- * Author: Amir Tarbiyat
+ * Author: Amir Tarbiyat B00882695
  * Description:
  *     This script allows the player to toggle a flashlight on and off using
  *     the "F" key. The flashlight is enabled by default when the game starts.

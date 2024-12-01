@@ -1,6 +1,6 @@
 /**************************************************************************
  * Filename: Projectile.cs
- * Author: Amir Tarbiyat
+ * Author: Amir Tarbiyat B00882695
  * Description:
  *     This script controls the behavior of a projectile. When the projectile
  *     collides with an object, it checks for a collision with the player. If

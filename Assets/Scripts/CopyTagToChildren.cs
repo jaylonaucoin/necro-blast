@@ -1,6 +1,6 @@
 /**************************************************************************
  * Filename: CopyTagToChildren.cs  (Not Used)
- * Author: Amir Tarbiyat
+ * Author: Amir Tarbiyat B00882695
  * Description:
  *     This script recursively assigns the parent's tag to all of its child 
  *     objects in the hierarchy. It ensures that the tag of the parent is 
