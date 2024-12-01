@@ -7,6 +7,9 @@
  *     the player, and firing projectiles at the player. The turret can take
  *     damage and be destroyed when its health is depleted. It also provides
  *     visual debugging for sight and attack ranges in the editor using Gizmos.
+ *     When the turret takes damage, it plays a sound, which can be customized
+ *     in the inspector without requiring an AudioSource component to be attached.
+ *     Additionally, it plays a destruction sound when the turret is destroyed.
  * 
  **************************************************************************/
 
@@ -31,6 +34,10 @@ public class TurretEnemy : MonoBehaviour
     public bool playerInSightRange, playerInAttackRange;
 
     public float rotationSpeed = 5f; // Speed for rotating towards the player
+
+    // Audio
+    public AudioClip damageSound; // Audio clip to play when taking damage
+    public AudioClip destructionSound; // Audio clip to play when destroyed
 
     private void Awake()
     {
@@ -94,11 +101,37 @@ public class TurretEnemy : MonoBehaviour
     {
         health -= damage;
 
+        // Play damage sound if available
+        if (damageSound != null)
+        {
+            GameObject tempAudioSource = new GameObject("TempAudio");
+            tempAudioSource.transform.position = transform.position;
+
+            AudioSource audioSource = tempAudioSource.AddComponent<AudioSource>();
+            audioSource.clip = damageSound;
+            audioSource.Play();
+
+            Destroy(tempAudioSource, damageSound.length); // Destroy the temporary GameObject after sound finishes playing
+        }
+
         if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
     }
 
     private void DestroyEnemy()
     {
+        // Play destruction sound if available
+        if (destructionSound != null)
+        {
+            GameObject tempAudioSource = new GameObject("TempAudio");
+            tempAudioSource.transform.position = transform.position;
+
+            AudioSource audioSource = tempAudioSource.AddComponent<AudioSource>();
+            audioSource.clip = destructionSound;
+            audioSource.Play();
+
+            Destroy(tempAudioSource, destructionSound.length); // Destroy the temporary GameObject after sound finishes playing
+        }
+
         Destroy(gameObject);
     }
 

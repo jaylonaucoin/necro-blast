@@ -142,6 +142,8 @@ MonoBehaviour:
   playerInSightRange: 0
   playerInAttackRange: 0
   rotationSpeed: 5
+  damageSound: {fileID: 8300000, guid: 958408b32ccf3714ea02821877b0870c, type: 3}
+  destructionSound: {fileID: 8300000, guid: d47e6ed162da1f740ad807d00f4679f3, type: 3}
 --- !u!65 &4278397378052775484
 BoxCollider:
   m_ObjectHideFlags: 0
