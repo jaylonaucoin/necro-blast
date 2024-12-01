@@ -702,6 +702,10 @@ MonoBehaviour:
   damage: 7
   health: 15
   attackCooldown: 2
+  bloodEffectPrefab: {fileID: 1013274939826982, guid: ffbf169ab9dcfdc45ae14010bc82a6b2, type: 3}
+  bloodEffectCount: 350
+  bloodEffectSpawnHeight: 1
+  bloodEffectSpawnRadius: 0.25
   walkSounds:
   - {fileID: 8300000, guid: 664e63fe84ca44741a6f6b29266e63b5, type: 3}
   - {fileID: 8300000, guid: e29d35a3561cf964e9c39f5b99c2696c, type: 3}

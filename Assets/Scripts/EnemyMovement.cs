@@ -11,8 +11,6 @@
  * 
  **************************************************************************/
 
-
-
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -28,6 +26,12 @@ public class EnemyMovement : MonoBehaviour
     public int damage = 1;
     public int health = 10; // Add health for the enemy
     public float attackCooldown = 1f; // Time between attacks
+
+    [Header("Effects")]
+    public GameObject bloodEffectPrefab; // Prefab for blood effects
+    public int bloodEffectCount = 10;    // Number of blood effects to spawn
+    public float bloodEffectSpawnHeight = 1f; // Height above ground to spawn blood effects
+    public float bloodEffectSpawnRadius = 1f; // Radius around the enemy for random spawn positions
 
     [Header("Sound Effects")]
     public AudioClip[] walkSounds; // Array of ambient walk sounds
@@ -75,7 +79,6 @@ public class EnemyMovement : MonoBehaviour
         PlayRandomAmbientSound();
     }
 
-
     void Update()
     {
         if (target == null) return;
@@ -112,20 +115,38 @@ public class EnemyMovement : MonoBehaviour
     {
         StopAmbientSound();
         PlaySound(deathSound);
+        SpawnBloodEffects(); // Spawn blood effects upon death
         OnZombieDestroyed?.Invoke(gameObject);
         StartCoroutine(FallAndDespawn());
     }
 
     private IEnumerator FallAndDespawn()
-{
-    // Rotate the model to make it fall to the ground
-    //transform.Rotate(90f, 0f, 0f);
+    {
+        yield return new WaitForSeconds(0f);
+        Destroy(gameObject);
+    }
 
-    // Despawn the enemy after 10 seconds
-    yield return new WaitForSeconds(0f);
-    Destroy(gameObject);
-}
+    private void SpawnBloodEffects()
+    {
+        if (bloodEffectPrefab == null)
+        {
+            Debug.LogWarning("Blood effect prefab is not assigned!");
+            return;
+        }
 
+        for (int i = 0; i < bloodEffectCount; i++)
+        {
+            // Generate a random position within a circle (360-degree spread)
+            Vector2 randomCircle = Random.insideUnitCircle * bloodEffectSpawnRadius;
+            Vector3 spawnPosition = new Vector3(
+                transform.position.x + randomCircle.x,
+                transform.position.y + bloodEffectSpawnHeight,
+                transform.position.z + randomCircle.y
+            );
+
+            Instantiate(bloodEffectPrefab, spawnPosition, Quaternion.identity);
+        }
+    }
 
     private IEnumerator AttackPlayer()
     {
