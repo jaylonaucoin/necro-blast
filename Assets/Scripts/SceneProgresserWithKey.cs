@@ -1,6 +1,6 @@
 /**************************************************************************
  * Filename: SceneLoaderWithKey.cs
- * Author: Amir Tarbiyat
+ * Author: Amir Tarbiyat B00882695
  * Description:
  *     This script handles scene transitions that require a key. When the
  *     player enters a trigger zone, it checks if the key has been collected

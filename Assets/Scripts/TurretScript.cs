@@ -1,6 +1,6 @@
 /**************************************************************************
  * Filename: TurretEnemy.cs
- * Author: Amir Tarbiyat
+ * Author: Amir Tarbiyat B00882695
  * Description:
  *     This script controls the behavior of a turret-style enemy, including
  *     detecting the player within sight and attack ranges, rotating towards

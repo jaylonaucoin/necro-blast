@@ -1,6 +1,6 @@
 /**************************************************************************
  * Filename: KeyTracker.cs
- * Author: Amir Tarbiyat
+ * Author: Amir Tarbiyat B00882695
  * Description:
  *     This script tracks whether the player has collected a key. When the
  *     player interacts with the key object (via a trigger), the key's status

@@ -1,7 +1,7 @@
 ﻿/**************************************************************************
  * Filename: BulletScript.cs
  * Original Author: Easy FPS asset
- * Modified By: Amir Tarbiyat
+ * Modified By: Amir Tarbiyat B00882695
  * Description:
  *     This script handles the behavior of a bullet, including raycasting to
  *     detect collisions with objects, spawning decals or effects upon impact,

@@ -1,6 +1,6 @@
 /**************************************************************************
  * Filename: WaterKillZone.cs
- * Author: Amir Tarbiyat
+ * Author: Amir Tarbiyat B00882695
  * Description:
  *     This script handles a kill zone triggered when the player falls into
  *     the water. Upon entering the trigger zone, the current scene is 
